@@ -87,6 +87,13 @@ resource "azurerm_storage_account" "filesync" {
   tags                     = merge({ "ResourceName" = format("%sst%s", lower(replace(local.resource_prefix, "/[[:^alnum:]]/", "")), lower(replace(local.name, "/[[:^alnum:]]/", ""))) }, var.tags, )
   account_tier             = var.storage_account_tier
   account_replication_type = var.storage_account_replication_type
+  
+  dynamic "azure_files_authentication" {
+    for_each = var.storage_account_enable_aadds_authentication ? [] : [1]
+    content {
+      directory_type = "AADDS"
+    }
+  }
 
   timeouts {
     create  = local.timeout_create

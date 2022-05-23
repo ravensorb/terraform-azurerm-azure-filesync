@@ -12,7 +12,6 @@ provider "azurerm" {
 
 module "azure-filesync" {
   source  = "ravensorb/azure-filesync/azurerm"
-  version = "1.0.0"
 
   # The name to use for this instance
   name                = "filesync"

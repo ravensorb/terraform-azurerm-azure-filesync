@@ -53,6 +53,11 @@ variable "storage_account_limit_access_to_subnets" {
     default     = false
 }
 
+variable "storage_account_enable_aadds_authentication" {
+  description = "(Optional) Indicates if AADDS authentication should be enabled on the storage acconnt"
+  default     = false
+}
+
 variable "storage_share_name" {
     description = "(Option) The name of the file share to create on the end point"
     default     = "files"
