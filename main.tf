@@ -89,9 +89,12 @@ resource "azurerm_storage_account" "filesync" {
   account_replication_type = var.storage_account_replication_type
   
   dynamic "azure_files_authentication" {
-    for_each = var.storage_account_enable_aadds_authentication ? [] : [1]
+    for_each = var.storage_account_authentication_type != "" ? [] : [1]
     content {
-      directory_type = "AADDS"
+      directory_type = var.storage_account_authentication_type
+      active_directory {
+        domain_name = var.storage_account_authentication_domain_name
+      }
     }
   }
 

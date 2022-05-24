@@ -53,9 +53,14 @@ variable "storage_account_limit_access_to_subnets" {
     default     = false
 }
 
-variable "storage_account_enable_aadds_authentication" {
-  description = "(Optional) Indicates if AADDS authentication should be enabled on the storage acconnt"
-  default     = false
+variable "storage_account_authentication_type" {
+  description = "(Optional) Indicates the type of authentication to enable (AD, AADDS)"
+  default     = "AADDS"
+}
+
+variable "storage_account_authentication_domain_name" {
+  description = "(Optional) Indicates the name of the domain to use for authentication"
+  default     = ""
 }
 
 variable "storage_share_name" {
