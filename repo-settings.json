@@ -1,0 +1,6 @@
+{
+    "name": "terraform-azurerm-azure-filesync",
+    "description": "Terraform module for setting up Azure File Storage and Azure File Sync",
+    "version": "v1.0.0",
+    "message": "Initial Version"
+}

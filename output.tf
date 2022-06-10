@@ -26,12 +26,12 @@ output "virtual_network_id" {
 
 output "storage_account_id" {
   description = "The id of the storage account that was used/created"
-  value       = azurerm_storage_account.filesync.id
+  value       = element(concat(data.azurerm_storage_account.filesync.*.id, azurerm_storage_account.filesync.*.id, [""]), 0) 
 }
 
 output "storage_account_name" {
   description = "The name of the storage account that was used/created"
-  value       = azurerm_storage_account.filesync.name
+  value       = element(concat(data.azurerm_storage_account.filesync.*.name, azurerm_storage_account.filesync.*.name, [""]), 0) 
 }
 
 output "storage_sync_id" {
